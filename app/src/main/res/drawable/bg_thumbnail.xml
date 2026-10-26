@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Khung thumbnail video (placeholder khi ảnh chưa tải) - bo 12dp -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/yt_bg_secondary" />
+    <corners android:radius="@dimen/corner_large" />
+</shape>

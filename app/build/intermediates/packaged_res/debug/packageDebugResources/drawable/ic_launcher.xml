@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Icon ứng dụng. Với minSdk 19, AGP tự sinh PNG (mdpi..xxhdpi) từ vector này lúc build,
+    nên KitKat dùng PNG còn API 21+ dùng vector gốc.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path
+        android:fillColor="#FF0033"
+        android:pathData="M10,12 H38 A6,6 0 0 1 44,18 V30 A6,6 0 0 1 38,36 H10 A6,6 0 0 1 4,30 V18 A6,6 0 0 1 10,12 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M20,18 L31,24 L20,30 Z" />
+</vector>

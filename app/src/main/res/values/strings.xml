@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YouTube KitKat</string>
+    <string name="brand_youtube">YouTube</string>
+
+    <!-- Chất lượng (kèm chuẩn 60fps cho Sharp Aquos 305SH) -->
+    <string name="quality_1080_60">MPEG-4 1080p60</string>
+    <string name="quality_1080">MPEG-4 1080p</string>
+    <string name="quality_720_60">MPEG-4 720p60</string>
+    <string name="quality_720">MPEG-4 720p</string>
+    <string name="quality_480">MPEG-4 480p</string>
+    <string name="quality_360">MPEG-4 360p</string>
+    <string name="quality_144">MPEG-4 144p</string>
+    <string name="quality_audio">Audio Only</string>
+
+    <!-- Màn hình chính (Home) & Tìm kiếm -->
+    <string name="search_hint">Tìm kiếm trên YouTube...</string>
+    <string name="search_clear_history">Xóa toàn bộ lịch sử tìm kiếm</string>
+    <string name="search_clear_all_history">Xóa lịch sử tìm kiếm</string>
+    <string name="chip_all">Tất cả</string>
+    <string name="chip_music">Âm nhạc</string>
+    <string name="chip_gaming">Trò chơi</string>
+    <string name="chip_news">Tin tức</string>
+    <string name="chip_sports">Thể thao</string>
+    <string name="chip_entertainment">Giải trí</string>
+    <string name="chip_tech">Công nghệ</string>
+    <string name="chip_live">Trực tiếp</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_explore">Thịnh hành</string>
+    <string name="nav_subscriptions">Đăng ký</string>
+    <string name="nav_library">Thư viện</string>
+    <string name="empty_subscriptions">Chưa có kênh đăng ký nào.\nHãy bấm \'Đăng ký\' bên dưới video để cập nhật các video mới nhất từ các kênh yêu thích của bạn.</string>
+    <string name="subscribed_toast">Đã đăng ký kênh %1$s</string>
+    <string name="unsubscribed_toast">Đã hủy đăng ký kênh %1$s</string>
+
+    <!-- Trình phát (Player & Mini-player) -->
+    <string name="player_select_quality">Chọn chất lượng phát</string>
+    <string name="player_select_speed">Chọn tốc độ phát</string>
+    <string name="player_related_header">Video đề xuất tiếp theo</string>
+    <string name="player_resolving_stream">Đang phân giải luồng 1080p60 / 720p60...</string>
+    <string name="player_error_resolve">Không trích xuất được luồng phát cho video này</string>
+    <string name="player_quality_switched">Đang chuyển sang %1$s</string>
+    <string name="action_subscribe">Đăng ký</string>
+    <string name="action_subscribed">Đã đăng ký</string>
+    <string name="action_like">Thích</string>
+    <string name="action_share">Chia sẻ</string>
+    <string name="action_download">Tải luồng</string>
+    <string name="audio_only_active_title">Đang phát chế độ Âm thanh (M4A)</string>
+    <string name="audio_only_active_sub">Đã giải phóng bề mặt Video để tiết kiệm pin tối đa</string>
+
+    <!-- Trạng thái & Thông báo -->
+    <string name="badge_live">TRỰC TIẾP</string>
+    <string name="loading_more">Đang tải thêm video...</string>
+    <string name="empty_history">Chưa có video nào trong lịch sử xem cục bộ.</string>
+    <string name="empty_videos">Không có video nào để hiển thị.</string>
+    <string name="btn_retry">Thử lại</string>
+    <string name="btn_clear_history">Xóa lịch sử xem</string>
+
+    <!-- Màn hình chẩn đoán mạng -->
+    <string name="diag_title">Chẩn đoán mạng</string>
+    <string name="diag_subtitle">TLS 1.2 · Data API v3 · InnerTube 60fps StreamResolver</string>
+    <string name="diag_video_hint">Video ID (11 ký tự)</string>
+    <string name="diag_default_video_id">aqz-KE-bpKQ</string>
+    <string name="diag_btn_tls">TLS</string>
+    <string name="diag_btn_trending">Thịnh hành</string>
+    <string name="diag_btn_stream">Trích luồng</string>
+    <string name="diag_btn_clear">Xóa log</string>
+    <string name="diag_quality_label">Chọn chất lượng (MPEG-4 60fps/30fps) để xem nguồn phát:</string>
+    <string name="diag_log_ready">Sẵn sàng. Bấm một nút để bắt đầu kiểm tra.</string>
+
+    <!-- Lỗi chung -->
+    <string name="error_api_key_missing">Chưa cấu hình YOUTUBE_API_KEY trong Config.java</string>
+    <string name="error_network">Lỗi mạng: %1$s</string>
+</resources>

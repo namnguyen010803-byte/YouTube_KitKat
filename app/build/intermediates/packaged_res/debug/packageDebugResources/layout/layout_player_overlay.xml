@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/player_overlay_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ========================================================================= -->
+    <!-- 1. CHẾ ĐỘ TOÀN MÀN HÌNH (FULL PLAYER): SURFACEVIEW 16:9 + CONTROLLER + DETAILS -->
+    <!-- ========================================================================= -->
+    <LinearLayout
+        android:id="@+id/full_player_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/yt_bg_primary"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Phía trên: Khung Video tỷ lệ 16:9 -->
+        <com.ytkitkat.app.ui.AspectRatio16x9FrameLayout
+            android:id="@+id/full_video_stage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/black">
+
+            <!-- Bề mặt hiển thị phần cứng H.264 -->
+            <SurfaceView
+                android:id="@+id/surface_full_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center" />
+
+            <!-- Bảng hiển thị khi đang ở chế độ Audio-Only (Giải phóng SurfaceView) -->
+            <LinearLayout
+                android:id="@+id/audio_only_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#121212"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/space_l"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_headphones" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_s"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="@string/audio_only_active_title"
+                    android:textColor="@color/yt_text_primary"
+                    android:textSize="@dimen/text_title" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/audio_only_active_sub"
+                    android:textColor="@color/yt_text_secondary"
+                    android:textSize="@dimen/text_meta" />
+            </LinearLayout>
+
+            <!-- Vòng xoay nạp đệm (Buffering) -->
+            <ProgressBar
+                android:id="@+id/progress_player_buffering"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="gone" />
+
+            <!-- Lớp điều khiển bán trong suốt (Controller Overlay) -->
+            <RelativeLayout
+                android:id="@+id/player_controls_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_player_scrim">
+
+                <!-- Thanh công cụ trên cùng: Nút thu nhỏ (v) + Tiêu đề thu gọn + Tốc độ (1x) + Chất lượng (MPEG-4 720p60) -->
+                <LinearLayout
+                    android:id="@+id/player_top_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/space_xs"
+                    android:paddingRight="@dimen/space_s">
+
+                    <ImageButton
+                        android:id="@+id/btn_minimize_player"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/selector_icon_button"
+                        android:contentDescription="@null"
+                        android:padding="7dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_chevron_down" />
+
+                    <TextView
+                        android:id="@+id/txt_overlay_compact_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/space_xs"
+                        android:layout_marginRight="@dimen/space_s"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="@color/yt_text_primary"
+                        android:textSize="@dimen/text_body" />
+
+                    <!-- Nút tốc độ phát (1x) -->
+                    <TextView
+                        android:id="@+id/btn_playback_speed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:background="@drawable/selector_button_tonal"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/space_s"
+                        android:paddingRight="@dimen/space_s"
+                        android:text="1x"
+                        android:textColor="@color/yt_text_primary"
+                        android:textSize="@dimen/text_meta" />
+
+                    <!-- Nút chọn chất lượng (MPEG-4 720p60) -->
+                    <TextView
+                        android:id="@+id/btn_quality_selector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="@dimen/space_xs"
+                        android:background="@drawable/selector_button_tonal"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:text="@string/quality_720_60"
+                        android:textColor="@color/yt_text_primary"
+                        android:textSize="@dimen/text_meta" />
+                </LinearLayout>
+
+                <!-- Nút Play/Pause lớn ở chính giữa -->
+                <ImageButton
+                    android:id="@+id/btn_center_play_pause"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_circle_control"
+                    android:contentDescription="@null"
+                    android:padding="14dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_pause" />
+
+                <!-- Thanh tiến trình dưới đáy: Nhãn thời gian hiện tại / tổng + SeekBar đỏ #FF0033 -->
+                <LinearLayout
+                    android:id="@+id/player_bottom_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="6dp"
+                    android:paddingLeft="@dimen/space_m"
+                    android:paddingRight="@dimen/space_m">
+
+                    <TextView
+                        android:id="@+id/txt_current_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="0:00"
+                        android:textColor="@color/yt_text_primary"
+                        android:textSize="@dimen/text_meta" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" / "
+                        android:textColor="@color/yt_text_secondary"
+                        android:textSize="@dimen/text_meta" />
+
+                    <TextView
+                        android:id="@+id/txt_total_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:00"
+                        android:textColor="@color/yt_text_secondary"
+                        android:textSize="@dimen/text_meta" />
+
+                    <SeekBar
+                        android:id="@+id/seek_player_progress"
+                        style="@style/Widget.YouTube2026.SeekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/space_s"
+                        android:layout_weight="1"
+                        android:max="1000" />
+                </LinearLayout>
+            </RelativeLayout>
+        </com.ytkitkat.app.ui.AspectRatio16x9FrameLayout>
+
+        <!-- Phía dưới video: Danh sách cuộn gồm Header chi tiết (Tiêu đề, Kênh, Like/Share, Mô tả) + Video đề xuất -->
+        <ListView
+            android:id="@+id/list_related_videos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/yt_bg_primary"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:scrollingCache="false" />
+    </LinearLayout>
+
+    <!-- ========================================================================= -->
+    <!-- 2. CHẾ ĐỘ MINI-PLAYER (FLOATING BAR 60DP NEO TRÊN BOTTOM NAVIGATION BAR)  -->
+    <!-- ========================================================================= -->
+    <LinearLayout
+        android:id="@+id/mini_player_bar"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/bottom_nav_height"
+        android:background="@drawable/bg_mini_player"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Khung video nhỏ 106x60dp ở bên trái hiển thị tiếp nội dung video -->
+            <FrameLayout
+                android:layout_width="106dp"
+                android:layout_height="60dp"
+                android:background="@android:color/black">
+
+                <SurfaceView
+                    android:id="@+id/surface_mini_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/img_mini_audio_badge"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_headphones"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <!-- Ở giữa: Tiêu đề video (chạy chữ marquee nếu quá dài) + Tên kênh & chất lượng -->
+            <LinearLayout
+                android:id="@+id/mini_player_info_area"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/space_s"
+                android:paddingRight="@dimen/space_xs">
+
+                <TextView
+                    android:id="@+id/txt_mini_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:singleLine="true"
+                    android:textColor="@color/yt_text_primary"
+                    android:textSize="@dimen/text_body" />
+
+                <TextView
+                    android:id="@+id/txt_mini_channel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/yt_text_secondary"
+                    android:textSize="@dimen/text_caption" />
+            </LinearLayout>
+
+            <!-- Bên phải: Nút Play/Pause nhanh và nút đóng X -->
+            <ImageButton
+                android:id="@+id/btn_mini_play_pause"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/selector_icon_button"
+                android:contentDescription="@null"
+                android:padding="9dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_pause" />
+
+            <ImageButton
+                android:id="@+id/btn_mini_close"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/selector_icon_button"
+                android:contentDescription="@null"
+                android:padding="9dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_close" />
+        </LinearLayout>
+
+        <!-- Thanh tiến trình mỏng 2dp màu đỏ #FF0033 dưới đáy Mini-player -->
+        <ProgressBar
+            android:id="@+id/progress_mini_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:max="1000"
+            android:progressDrawable="@drawable/seekbar_progress" />
+    </LinearLayout>
+
+</RelativeLayout>

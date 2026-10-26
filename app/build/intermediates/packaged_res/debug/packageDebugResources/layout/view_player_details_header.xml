@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yt_bg_primary"
+    android:orientation="vertical"
+    android:padding="@dimen/space_m">
+
+    <!-- Tiêu đề video đầy đủ -->
+    <TextView
+        android:id="@+id/txt_player_full_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="2dp"
+        android:maxLines="3"
+        android:textColor="@color/yt_text_primary"
+        android:textSize="16sp" />
+
+    <!-- Lượt xem • Thời gian đăng • Nguồn luồng đang phát -->
+    <TextView
+        android:id="@+id/txt_player_full_stats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/yt_text_secondary"
+        android:textSize="@dimen/text_meta" />
+
+    <!-- Hàng Kênh: Avatar tròn 36dp + Tên kênh + Số người đăng ký + Nút Đăng ký -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_m"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_player_channel_avatar"
+            android:layout_width="@dimen/avatar_size"
+            android:layout_height="@dimen/avatar_size"
+            android:background="@drawable/bg_avatar_placeholder"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_s"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_player_channel_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-medium"
+                android:singleLine="true"
+                android:textColor="@color/yt_text_primary"
+                android:textSize="@dimen/text_body" />
+
+            <TextView
+                android:id="@+id/txt_player_channel_subs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/yt_text_secondary"
+                android:textSize="@dimen/text_caption" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_player_subscribe"
+            style="@style/Widget.YouTube2026.Button.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:paddingLeft="@dimen/space_m"
+            android:paddingRight="@dimen/space_m"
+            android:text="@string/action_subscribe"
+            android:textSize="@dimen/text_meta" />
+    </LinearLayout>
+
+    <!-- Hàng nút tương tác: Thích / Chia sẻ / Tải xuống / Âm thanh nền (Audio-Only) -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_m"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Nút Thích -->
+            <LinearLayout
+                android:id="@+id/btn_action_like"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:background="@drawable/selector_button_tonal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/space_m"
+                android:paddingRight="@dimen/space_m">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_thumb_up" />
+
+                <TextView
+                    android:id="@+id/txt_action_like_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="@string/action_like"
+                    android:textColor="@color/yt_text_primary"
+                    android:textSize="@dimen/text_meta" />
+            </LinearLayout>
+
+            <!-- Nút Chia sẻ -->
+            <LinearLayout
+                android:id="@+id/btn_action_share"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginLeft="@dimen/space_s"
+                android:background="@drawable/selector_button_tonal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/space_m"
+                android:paddingRight="@dimen/space_m">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_share" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="@string/action_share"
+                    android:textColor="@color/yt_text_primary"
+                    android:textSize="@dimen/text_meta" />
+            </LinearLayout>
+
+            <!-- Nút Chuyển nhanh Audio-Only -->
+            <LinearLayout
+                android:id="@+id/btn_action_audio_only"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginLeft="@dimen/space_s"
+                android:background="@drawable/selector_button_tonal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/space_m"
+                android:paddingRight="@dimen/space_m">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_headphones" />
+
+                <TextView
+                    android:id="@+id/txt_action_audio_only"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="@string/quality_audio"
+                    android:textColor="@color/yt_text_primary"
+                    android:textSize="@dimen/text_meta" />
+            </LinearLayout>
+
+            <!-- Nút Sao chép / Tải luồng -->
+            <LinearLayout
+                android:id="@+id/btn_action_download"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginLeft="@dimen/space_s"
+                android:background="@drawable/selector_button_tonal"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/space_m"
+                android:paddingRight="@dimen/space_m">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_download" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="@string/action_download"
+                    android:textColor="@color/yt_text_primary"
+                    android:textSize="@dimen/text_meta" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Khung Mô tả video (Card #272727 bo góc 12dp, chạm để mở rộng / thu gọn) -->
+    <LinearLayout
+        android:id="@+id/card_player_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_m"
+        android:background="@drawable/bg_card"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="@dimen/space_m">
+
+        <TextView
+            android:id="@+id/txt_player_stream_tech"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/yt_text_primary"
+            android:textSize="@dimen/text_meta" />
+
+        <TextView
+            android:id="@+id/txt_player_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:lineSpacingExtra="2dp"
+            android:maxLines="3"
+            android:textColor="@color/yt_text_secondary"
+            android:textSize="@dimen/text_meta" />
+    </LinearLayout>
+
+    <!-- Tiêu đề danh sách Video đề xuất tiếp theo -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_l"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/player_related_header"
+        android:textColor="@color/yt_text_primary"
+        android:textSize="@dimen/text_title" />
+
+</LinearLayout>

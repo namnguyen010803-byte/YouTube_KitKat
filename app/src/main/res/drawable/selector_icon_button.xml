@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nút icon tròn (back, search, cast, more...) -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:exitFadeDuration="@android:integer/config_shortAnimTime">
+    <item android:state_pressed="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/yt_bg_pressed" />
+        </shape>
+    </item>
+    <item android:drawable="@color/yt_transparent" />
+</selector>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bo góc -->
+    <dimen name="corner_small">8dp</dimen>
+    <dimen name="corner_large">12dp</dimen>
+    <dimen name="corner_badge">4dp</dimen>
+
+    <!-- Khoảng cách -->
+    <dimen name="space_xxs">2dp</dimen>
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_s">8dp</dimen>
+    <dimen name="space_m">12dp</dimen>
+    <dimen name="space_l">16dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+
+    <!-- Kích thước thành phần -->
+    <dimen name="top_bar_height">48dp</dimen>
+    <dimen name="bottom_nav_height">48dp</dimen>
+    <dimen name="mini_player_height">64dp</dimen>
+    <dimen name="chip_height">32dp</dimen>
+    <dimen name="search_box_height">40dp</dimen>
+    <dimen name="button_height">36dp</dimen>
+    <dimen name="avatar_size">36dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="icon_touch_target">40dp</dimen>
+    <dimen name="seekbar_height">3dp</dimen>
+    <dimen name="seekbar_thumb">12dp</dimen>
+
+    <!-- Cỡ chữ -->
+    <dimen name="text_headline">20sp</dimen>
+    <dimen name="text_title">15sp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_meta">12sp</dimen>
+    <dimen name="text_caption">11sp</dimen>
+</resources>

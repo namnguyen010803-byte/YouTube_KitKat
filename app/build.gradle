@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.ytkitkat.app'
+    // compileSdk chỉ ảnh hưởng lúc biên dịch; ứng dụng vẫn chạy trên API 19.
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.ytkitkat.app'
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName '1.0.0'
+
+        // minSdk < 21: AGP tự raster hóa <vector> thành PNG lúc build,
+        // không cần thư viện support/AndroidX nào.
+        vectorDrawables.generatedDensities = ['mdpi', 'hdpi', 'xhdpi', 'xxhdpi']
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+        encoding 'UTF-8'
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+        disable 'ExpiredTargetSdkVersion', 'OldTargetApi', 'GradleDependency'
+    }
+}
+
+dependencies {
+    // Engine BoringSSL (Conscrypt) chính chủ của Google hỗ trợ API 19 (không phụ thuộc AndroidX)
+    // giúp thay thế hoàn toàn OpenSSL cũ của ROM Android 4.4.4 bằng TLS 1.2 / TLS 1.3 + ECDHE + SNI chuẩn.
+    implementation 'org.conscrypt:conscrypt-android:2.5.2'
+}

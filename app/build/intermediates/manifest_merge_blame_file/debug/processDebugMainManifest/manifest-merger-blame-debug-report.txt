@@ -1,0 +1,89 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.ytkitkat.app"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+7-->INJECTED
+8        android:minSdkVersion="19"
+8-->INJECTED
+9        android:targetSdkVersion="28" />
+9-->INJECTED
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:4:5-67
+11-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:5:5-79
+12-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:5:22-76
+13    <!-- MediaPlayer.setWakeMode() giữ CPU khi phát Audio-Only màn hình tắt -->
+14    <uses-permission android:name="android.permission.WAKE_LOCK" />
+14-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:7:5-68
+14-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:7:22-65
+15
+16    <application
+16-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:9:5-41:19
+17        android:name="com.ytkitkat.app.YtApplication"
+17-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:10:9-38
+18        android:allowBackup="true"
+18-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:11:9-35
+19        android:debuggable="true"
+20        android:extractNativeLibs="true"
+20-->INJECTED
+21        android:hardwareAccelerated="true"
+21-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:12:9-43
+22        android:icon="@drawable/ic_launcher"
+22-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:13:9-45
+23        android:label="@string/app_name"
+23-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:14:9-41
+24        android:largeHeap="true"
+24-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:15:9-33
+25        android:networkSecurityConfig="@xml/network_security_config"
+25-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:16:9-69
+26        android:supportsRtl="true"
+26-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:17:9-35
+27        android:theme="@style/Theme.YouTube2026" >
+27-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:18:9-49
+28
+29        <!-- Màn hình chính (Home - Bước 4) -->
+30        <activity
+30-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:21:9-31:20
+31            android:name="com.ytkitkat.app.ui.MainActivity"
+31-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:22:13-44
+32            android:configChanges="orientation|screenSize|keyboardHidden"
+32-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:23:13-74
+33            android:exported="true"
+33-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:24:13-36
+34            android:label="@string/app_name"
+34-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:25:13-45
+35            android:windowSoftInputMode="stateHidden|adjustResize" >
+35-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:26:13-67
+36            <intent-filter>
+36-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:27:13-30:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:28:17-69
+37-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:28:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:29:17-77
+39-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:29:27-74
+40            </intent-filter>
+41        </activity>
+42
+43        <!-- Màn hình chẩn đoán tầng mạng & StreamResolver (mở nhanh từ Top Bar của MainActivity) -->
+44        <activity
+44-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:34:9-39:70
+45            android:name="com.ytkitkat.app.ui.NetworkDiagnosticActivity"
+45-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:35:13-57
+46            android:configChanges="orientation|screenSize|keyboardHidden"
+46-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:36:13-74
+47            android:exported="false"
+47-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:37:13-37
+48            android:label="@string/diag_title"
+48-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:38:13-47
+49            android:windowSoftInputMode="stateHidden|adjustResize" />
+49-->C:\Users\ADMIN\Downloads\vibe coding\YouTube KitKat\app\src\main\AndroidManifest.xml:39:13-67
+50    </application>
+51
+52</manifest>

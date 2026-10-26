@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="yt_accent">#FF0033</color>
+    <color name="yt_accent_highlight">#66FF0033</color>
+    <color name="yt_accent_pressed">#CC0029</color>
+    <color name="yt_bg_pressed">#3F3F3F</color>
+    <color name="yt_bg_primary">#0F0F0F</color>
+    <color name="yt_bg_secondary">#272727</color>
+    <color name="yt_divider">#272727</color>
+    <color name="yt_duration_bg">#CC0F0F0F</color>
+    <color name="yt_link">#3EA6FF</color>
+    <color name="yt_log_bg">#171717</color>
+    <color name="yt_pressed_overlay">#1AFFFFFF</color>
+    <color name="yt_progress_buffer">#80AAAAAA</color>
+    <color name="yt_progress_track">#4DF1F1F1</color>
+    <color name="yt_scrim_bottom">#B3000000</color>
+    <color name="yt_scrim_top">#99000000</color>
+    <color name="yt_success">#2BA640</color>
+    <color name="yt_text_hint">#717171</color>
+    <color name="yt_text_primary">#F1F1F1</color>
+    <color name="yt_text_primary_pressed">#D9D9D9</color>
+    <color name="yt_text_secondary">#AAAAAA</color>
+    <color name="yt_transparent">#00000000</color>
+    <dimen name="avatar_size">36dp</dimen>
+    <dimen name="bottom_nav_height">48dp</dimen>
+    <dimen name="button_height">36dp</dimen>
+    <dimen name="chip_height">32dp</dimen>
+    <dimen name="corner_badge">4dp</dimen>
+    <dimen name="corner_large">12dp</dimen>
+    <dimen name="corner_small">8dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="icon_touch_target">40dp</dimen>
+    <dimen name="mini_player_height">64dp</dimen>
+    <dimen name="search_box_height">40dp</dimen>
+    <dimen name="seekbar_height">3dp</dimen>
+    <dimen name="seekbar_thumb">12dp</dimen>
+    <dimen name="space_l">16dp</dimen>
+    <dimen name="space_m">12dp</dimen>
+    <dimen name="space_s">8dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_xxs">2dp</dimen>
+    <dimen name="text_body">14sp</dimen>
+    <dimen name="text_caption">11sp</dimen>
+    <dimen name="text_headline">20sp</dimen>
+    <dimen name="text_meta">12sp</dimen>
+    <dimen name="text_title">15sp</dimen>
+    <dimen name="top_bar_height">48dp</dimen>
+    <string name="action_download">Tải luồng</string>
+    <string name="action_like">Thích</string>
+    <string name="action_share">Chia sẻ</string>
+    <string name="action_subscribe">Đăng ký</string>
+    <string name="action_subscribed">Đã đăng ký</string>
+    <string name="app_name">YouTube KitKat</string>
+    <string name="audio_only_active_sub">Đã giải phóng bề mặt Video để tiết kiệm pin tối đa</string>
+    <string name="audio_only_active_title">Đang phát chế độ Âm thanh (M4A)</string>
+    <string name="badge_live">TRỰC TIẾP</string>
+    <string name="brand_youtube">YouTube</string>
+    <string name="btn_clear_history">Xóa lịch sử xem</string>
+    <string name="btn_retry">Thử lại</string>
+    <string name="chip_all">Tất cả</string>
+    <string name="chip_entertainment">Giải trí</string>
+    <string name="chip_gaming">Trò chơi</string>
+    <string name="chip_live">Trực tiếp</string>
+    <string name="chip_music">Âm nhạc</string>
+    <string name="chip_news">Tin tức</string>
+    <string name="chip_sports">Thể thao</string>
+    <string name="chip_tech">Công nghệ</string>
+    <string name="diag_btn_clear">Xóa log</string>
+    <string name="diag_btn_stream">Trích luồng</string>
+    <string name="diag_btn_tls">TLS</string>
+    <string name="diag_btn_trending">Thịnh hành</string>
+    <string name="diag_default_video_id">aqz-KE-bpKQ</string>
+    <string name="diag_log_ready">Sẵn sàng. Bấm một nút để bắt đầu kiểm tra.</string>
+    <string name="diag_quality_label">Chọn chất lượng (MPEG-4 60fps/30fps) để xem nguồn phát:</string>
+    <string name="diag_subtitle">TLS 1.2 · Data API v3 · InnerTube 60fps StreamResolver</string>
+    <string name="diag_title">Chẩn đoán mạng</string>
+    <string name="diag_video_hint">Video ID (11 ký tự)</string>
+    <string name="empty_history">Chưa có video nào trong lịch sử xem cục bộ.</string>
+    <string name="empty_videos">Không có video nào để hiển thị.</string>
+    <string name="error_api_key_missing">Chưa cấu hình YOUTUBE_API_KEY trong Config.java</string>
+    <string name="error_network">Lỗi mạng: %1$s</string>
+    <string name="loading_more">Đang tải thêm video...</string>
+    <string name="nav_explore">Thịnh hành</string>
+    <string name="nav_home">Trang chủ</string>
+    <string name="nav_library">Thư viện</string>
+    <string name="player_error_resolve">Không trích xuất được luồng phát cho video này</string>
+    <string name="player_quality_switched">Đang chuyển sang %1$s</string>
+    <string name="player_related_header">Video đề xuất tiếp theo</string>
+    <string name="player_resolving_stream">Đang phân giải luồng 1080p60 / 720p60...</string>
+    <string name="player_select_quality">Chọn chất lượng phát</string>
+    <string name="player_select_speed">Chọn tốc độ phát</string>
+    <string name="quality_1080">MPEG-4 1080p</string>
+    <string name="quality_1080_60">MPEG-4 1080p60</string>
+    <string name="quality_144">MPEG-4 144p</string>
+    <string name="quality_360">MPEG-4 360p</string>
+    <string name="quality_480">MPEG-4 480p</string>
+    <string name="quality_720">MPEG-4 720p</string>
+    <string name="quality_720_60">MPEG-4 720p60</string>
+    <string name="quality_audio">Audio Only</string>
+    <string name="search_clear_all_history">Xóa lịch sử tìm kiếm</string>
+    <string name="search_clear_history">Xóa toàn bộ lịch sử tìm kiếm</string>
+    <string name="search_hint">Tìm kiếm trên YouTube...</string>
+    <style name="Base.Theme.YouTube2026" parent="@android:style/Theme.Holo.NoActionBar">
+        <item name="android:windowBackground">@color/yt_bg_primary</item>
+        <item name="android:colorBackground">@color/yt_bg_primary</item>
+        <item name="android:colorBackgroundCacheHint">@color/yt_bg_primary</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+        <item name="android:textColorPrimary">@color/yt_text_primary</item>
+        <item name="android:textColorSecondary">@color/yt_text_secondary</item>
+        <item name="android:textColorTertiary">@color/yt_text_secondary</item>
+        <item name="android:textColorHint">@color/yt_text_hint</item>
+        <item name="android:textColorHighlight">@color/yt_accent_highlight</item>
+        <item name="android:textColorLink">@color/yt_link</item>
+
+        <item name="android:listViewStyle">@style/Widget.YouTube2026.ListView</item>
+        <item name="android:editTextStyle">@style/Widget.YouTube2026.EditText</item>
+        <item name="android:buttonStyle">@style/Widget.YouTube2026.Button</item>
+        <item name="android:seekBarStyle">@style/Widget.YouTube2026.SeekBar</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scrollbar_thumb</item>
+    </style>
+    <style name="TextAppearance.YouTube2026.Badge" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/text_meta</item>
+        <item name="android:textColor">@color/yt_text_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.YouTube2026.Body" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/yt_text_primary</item>
+    </style>
+    <style name="TextAppearance.YouTube2026.Caption" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:textColor">@color/yt_text_secondary</item>
+    </style>
+    <style name="TextAppearance.YouTube2026.Headline" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/text_headline</item>
+        <item name="android:textColor">@color/yt_text_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="TextAppearance.YouTube2026.Meta" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/text_meta</item>
+        <item name="android:textColor">@color/yt_text_secondary</item>
+    </style>
+    <style name="TextAppearance.YouTube2026.Title" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textColor">@color/yt_text_primary</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Theme.YouTube2026" parent="Base.Theme.YouTube2026"/>
+    <style name="Theme.YouTube2026.Player" parent="Theme.YouTube2026">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+    <style name="Widget.YouTube2026.Button" parent="@android:style/Widget.Holo.Button">
+        <item name="android:background">@drawable/selector_button_tonal</item>
+        <item name="android:textColor">@color/yt_text_primary</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:paddingLeft">@dimen/space_l</item>
+        <item name="android:paddingRight">@dimen/space_l</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="Widget.YouTube2026.Button.Accent">
+        <item name="android:background">@drawable/selector_button_accent</item>
+        <item name="android:textColor">@color/yt_text_primary</item>
+    </style>
+    <style name="Widget.YouTube2026.Button.Primary">
+        <item name="android:background">@drawable/selector_button_primary</item>
+        <item name="android:textColor">@color/yt_bg_primary</item>
+    </style>
+    <style name="Widget.YouTube2026.Chip" parent="@android:style/Widget.Holo.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/chip_height</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/space_m</item>
+        <item name="android:paddingRight">@dimen/space_m</item>
+        <item name="android:background">@drawable/selector_chip</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="Widget.YouTube2026.EditText" parent="@android:style/Widget.Holo.EditText">
+        <item name="android:background">@drawable/selector_search_box</item>
+        <item name="android:textColor">@color/yt_text_primary</item>
+        <item name="android:textColorHint">@color/yt_text_hint</item>
+        <item name="android:textCursorDrawable">@drawable/edittext_cursor</item>
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:minHeight">@dimen/search_box_height</item>
+        <item name="android:paddingLeft">@dimen/space_l</item>
+        <item name="android:paddingRight">@dimen/space_l</item>
+        <item name="android:paddingTop">@dimen/space_s</item>
+        <item name="android:paddingBottom">@dimen/space_s</item>
+    </style>
+    <style name="Widget.YouTube2026.ListView" parent="@android:style/Widget.Holo.ListView">
+        <item name="android:divider">@null</item>
+        <item name="android:dividerHeight">0dp</item>
+        <item name="android:listSelector">@drawable/selector_ripple_dark</item>
+        <item name="android:cacheColorHint">@color/yt_bg_primary</item>
+        <item name="android:drawSelectorOnTop">false</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+        <item name="android:requiresFadingEdge">none</item>
+    </style>
+    <style name="Widget.YouTube2026.SeekBar" parent="@android:style/Widget.Holo.SeekBar">
+        <item name="android:progressDrawable">@drawable/seekbar_progress</item>
+        <item name="android:thumb">@drawable/seekbar_thumb</item>
+        <item name="android:minHeight">@dimen/seekbar_height</item>
+        <item name="android:maxHeight">@dimen/seekbar_height</item>
+        <item name="android:thumbOffset">6dp</item>
+    </style>
+</resources>

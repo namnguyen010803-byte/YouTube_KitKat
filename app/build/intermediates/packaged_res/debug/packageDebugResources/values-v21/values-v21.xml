@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.YouTube2026" parent="Base.Theme.YouTube2026">
+        <item name="android:statusBarColor">@color/yt_bg_primary</item>
+        <item name="android:navigationBarColor">@color/yt_bg_primary</item>
+    </style>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Chỉ có hiệu lực trên API 24+ (API 19 bỏ qua thuộc tính này).
+    targetSdk 28 mặc định chặn HTTP thường; chỉ cho phép cleartext tới localhost
+    để dành cho proxy luồng cục bộ (nếu cần ở Bước 6).
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">127.0.0.1</domain>
+        <domain includeSubdomains="false">localhost</domain>
+    </domain-config>
+</network-security-config>

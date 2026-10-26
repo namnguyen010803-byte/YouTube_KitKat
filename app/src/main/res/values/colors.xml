@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===== Bảng màu YouTube 2026 AMOLED Dark ===== -->
+    <!-- Nền chính -->
+    <color name="yt_bg_primary">#0F0F0F</color>
+    <!-- Nền phụ: Chip / Card / Mini-player / Search box -->
+    <color name="yt_bg_secondary">#272727</color>
+    <!-- Chữ chính / phụ -->
+    <color name="yt_text_primary">#F1F1F1</color>
+    <color name="yt_text_secondary">#AAAAAA</color>
+    <!-- Điểm nhấn (đỏ YouTube) -->
+    <color name="yt_accent">#FF0033</color>
+
+    <!-- ===== Màu dẫn xuất (trạng thái, overlay) ===== -->
+    <color name="yt_bg_pressed">#3F3F3F</color>
+    <color name="yt_accent_pressed">#CC0029</color>
+    <color name="yt_text_primary_pressed">#D9D9D9</color>
+    <color name="yt_text_hint">#717171</color>
+    <color name="yt_divider">#272727</color>
+    <color name="yt_pressed_overlay">#1AFFFFFF</color>
+    <color name="yt_accent_highlight">#66FF0033</color>
+    <color name="yt_link">#3EA6FF</color>
+    <color name="yt_duration_bg">#CC0F0F0F</color>
+    <color name="yt_progress_track">#4DF1F1F1</color>
+    <color name="yt_progress_buffer">#80AAAAAA</color>
+    <color name="yt_scrim_top">#99000000</color>
+    <color name="yt_scrim_bottom">#B3000000</color>
+    <color name="yt_log_bg">#171717</color>
+    <color name="yt_success">#2BA640</color>
+    <color name="yt_transparent">#00000000</color>
+</resources>

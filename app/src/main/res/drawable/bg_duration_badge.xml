@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nhãn thời lượng góc phải dưới thumbnail -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/yt_duration_bg" />
+    <corners android:radius="@dimen/corner_badge" />
+</shape>

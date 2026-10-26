@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yt_bg_primary"
+    android:orientation="vertical"
+    android:padding="@dimen/space_m">
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/diag_title"
+        android:textAppearance="@style/TextAppearance.YouTube2026.Headline" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_xxs"
+        android:text="@string/diag_subtitle"
+        android:textAppearance="@style/TextAppearance.YouTube2026.Meta" />
+
+    <!-- Ô nhập Video ID + nút trích luồng -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_m"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edit_video_id"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/search_box_height"
+            android:layout_weight="1"
+            android:hint="@string/diag_video_hint"
+            android:imeOptions="actionDone"
+            android:inputType="textNoSuggestions"
+            android:singleLine="true"
+            android:text="@string/diag_default_video_id" />
+
+        <Button
+            android:id="@+id/btn_resolve_stream"
+            style="@style/Widget.YouTube2026.Button.Accent"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/search_box_height"
+            android:layout_marginLeft="@dimen/space_s"
+            android:text="@string/diag_btn_stream" />
+    </LinearLayout>
+
+    <!-- Hàng nút kiểm tra TLS / Data API / Xóa log -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_s"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_test_tls"
+            style="@style/Widget.YouTube2026.Button"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:text="@string/diag_btn_tls" />
+
+        <Button
+            android:id="@+id/btn_test_trending"
+            style="@style/Widget.YouTube2026.Button"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginLeft="@dimen/space_s"
+            android:layout_weight="1"
+            android:text="@string/diag_btn_trending" />
+
+        <Button
+            android:id="@+id/btn_clear_log"
+            style="@style/Widget.YouTube2026.Button"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginLeft="@dimen/space_s"
+            android:layout_weight="1"
+            android:text="@string/diag_btn_clear" />
+    </LinearLayout>
+
+    <!-- Hàng Chip chọn chất lượng (MPEG-4 1080p60 / 1080p / 720p60 / 720p / 480p / 360p / 144p / Audio Only) -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_m"
+        android:text="@string/diag_quality_label"
+        android:textAppearance="@style/TextAppearance.YouTube2026.Meta" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_xs"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/chip_q_1080_60"
+                style="@style/Widget.YouTube2026.Chip"
+                android:text="@string/quality_1080_60" />
+
+            <TextView
+                android:id="@+id/chip_q_1080"
+                style="@style/Widget.YouTube2026.Chip"
+                android:layout_marginLeft="@dimen/space_s"
+                android:text="@string/quality_1080" />
+
+            <TextView
+                android:id="@+id/chip_q_720_60"
+                style="@style/Widget.YouTube2026.Chip"
+                android:layout_marginLeft="@dimen/space_s"
+                android:text="@string/quality_720_60" />
+
+            <TextView
+                android:id="@+id/chip_q_720"
+                style="@style/Widget.YouTube2026.Chip"
+                android:layout_marginLeft="@dimen/space_s"
+                android:text="@string/quality_720" />
+
+            <TextView
+                android:id="@+id/chip_q_480"
+                style="@style/Widget.YouTube2026.Chip"
+                android:layout_marginLeft="@dimen/space_s"
+                android:text="@string/quality_480" />
+
+            <TextView
+                android:id="@+id/chip_q_360"
+                style="@style/Widget.YouTube2026.Chip"
+                android:layout_marginLeft="@dimen/space_s"
+                android:text="@string/quality_360" />
+
+            <TextView
+                android:id="@+id/chip_q_144"
+                style="@style/Widget.YouTube2026.Chip"
+                android:layout_marginLeft="@dimen/space_s"
+                android:text="@string/quality_144" />
+
+            <TextView
+                android:id="@+id/chip_q_audio"
+                style="@style/Widget.YouTube2026.Chip"
+                android:layout_marginLeft="@dimen/space_s"
+                android:text="@string/quality_audio" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Khung hiển thị kết quả log -->
+    <ScrollView
+        android:id="@+id/scroll_log"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_m"
+        android:layout_weight="1"
+        android:background="@drawable/bg_log_box"
+        android:padding="@dimen/space_m">
+
+        <TextView
+            android:id="@+id/txt_log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/diag_log_ready"
+            android:textColor="@color/yt_text_primary"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/text_meta" />
+    </ScrollView>
+
+</LinearLayout>

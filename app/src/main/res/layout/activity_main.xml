@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yt_bg_primary">
+
+    <!-- ================= LỚP CHÍNH: TOP BAR + CHIPS + LISTVIEW + SEARCH OVERLAY + BOTTOM NAV ================= -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 1. TOP BAR (YouTube 2026 AMOLED Dark) -->
+        <LinearLayout
+            android:id="@+id/top_bar_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@color/yt_bg_primary"
+            android:orientation="vertical">
+
+            <!-- Hàng Logo YouTube / Nút Back tìm kiếm + Khung nhập từ khóa + Nút Chẩn đoán + Nút Kính lúp -->
+            <LinearLayout
+                android:id="@+id/top_header_row"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/top_bar_height"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/space_m"
+                android:paddingRight="@dimen/space_s">
+
+                <!-- Nút Back khi đang mở chế độ Tìm kiếm chuyên sâu -->
+                <ImageButton
+                    android:id="@+id/btn_search_back"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="-6dp"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/selector_icon_button"
+                    android:contentDescription="@null"
+                    android:padding="7dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_arrow_back"
+                    android:visibility="gone" />
+
+                <!-- Logo YouTube (Play đỏ #FF0033 + chữ trắng) -->
+                <LinearLayout
+                    android:id="@+id/brand_logo_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="22dp"
+                        android:contentDescription="@null"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/brand_youtube"
+                        android:textColor="@color/yt_text_primary"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Khung nhập tìm kiếm (hiện khi bấm vào thanh tìm kiếm ở Top Bar) -->
+                <LinearLayout
+                    android:id="@+id/search_input_container"
+                    android:layout_width="0dp"
+                    android:layout_height="38dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_search_box"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/space_m"
+                    android:paddingRight="@dimen/space_xs"
+                    android:visibility="gone">
+
+                    <EditText
+                        android:id="@+id/edit_search_query"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/search_hint"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text"
+                        android:padding="0dp"
+                        android:singleLine="true"
+                        android:textColor="@color/yt_text_primary"
+                        android:textColorHint="@color/yt_text_hint"
+                        android:textSize="@dimen/text_body" />
+
+                    <!-- Nút Clear X xóa nhanh văn bản đang nhập -->
+                    <ImageButton
+                        android:id="@+id/btn_close_search"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/selector_icon_button"
+                        android:contentDescription="@null"
+                        android:padding="6dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_close"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/top_bar_spacer"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <!-- Nút mở nhanh màn hình NetworkDiagnosticActivity -->
+                <ImageButton
+                    android:id="@+id/btn_open_diagnostic"
+                    android:layout_width="@dimen/icon_touch_target"
+                    android:layout_height="@dimen/icon_touch_target"
+                    android:background="@drawable/selector_icon_button"
+                    android:contentDescription="@string/diag_title"
+                    android:padding="8dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_diagnostic" />
+
+                <!-- Nút bật/thực hiện Tìm kiếm -->
+                <ImageButton
+                    android:id="@+id/btn_toggle_search"
+                    android:layout_width="@dimen/icon_touch_target"
+                    android:layout_height="@dimen/icon_touch_target"
+                    android:background="@drawable/selector_icon_button"
+                    android:contentDescription="@string/search_hint"
+                    android:padding="8dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_search" />
+            </LinearLayout>
+
+            <!-- 2. FILTER CHIPS BAR (HorizontalScrollView chứa các chip lọc danh mục) -->
+            <HorizontalScrollView
+                android:id="@+id/chips_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/space_s"
+                android:paddingLeft="@dimen/space_m"
+                android:paddingRight="@dimen/space_m"
+                android:paddingTop="@dimen/space_xs"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/chips_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <!-- Thanh công cụ phụ cho Tab Thư viện (Xóa lịch sử xem) -->
+            <LinearLayout
+                android:id="@+id/library_header_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/space_s"
+                android:paddingLeft="@dimen/space_m"
+                android:paddingRight="@dimen/space_m"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txt_library_subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/nav_library"
+                    android:textAppearance="@style/TextAppearance.YouTube2026.Title" />
+
+                <Button
+                    android:id="@+id/btn_clear_history"
+                    style="@style/Widget.YouTube2026.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="@string/btn_clear_history"
+                    android:textSize="@dimen/text_meta" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 4. BOTTOM NAVIGATION BAR (3 Tab: Trang chủ, Thịnh hành, Thư viện) -->
+        <LinearLayout
+            android:id="@+id/bottom_nav_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_nav_height"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_bottom_nav"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <!-- Tab 1: Trang chủ -->
+            <LinearLayout
+                android:id="@+id/nav_tab_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/selector_ripple_dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/icon_nav_home"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_nav_home" />
+
+                <TextView
+                    android:id="@+id/txt_nav_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:singleLine="true"
+                    android:text="@string/nav_home"
+                    android:textColor="@color/yt_text_primary"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Tab 2: Khám phá / Thịnh hành -->
+            <LinearLayout
+                android:id="@+id/nav_tab_explore"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/selector_ripple_dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/icon_nav_explore"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_nav_explore" />
+
+                <TextView
+                    android:id="@+id/txt_nav_explore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:singleLine="true"
+                    android:text="@string/nav_explore"
+                    android:textColor="@color/yt_text_secondary"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Tab 3: Thư viện / Lịch sử xem -->
+            <LinearLayout
+                android:id="@+id/nav_tab_library"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/selector_ripple_dark"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/icon_nav_library"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_nav_library" />
+
+                <TextView
+                    android:id="@+id/txt_nav_library"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:singleLine="true"
+                    android:text="@string/nav_library"
+                    android:textColor="@color/yt_text_secondary"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 3. KHUNG NỘI DUNG GIỮA: LISTVIEW VIDEO + LOADING + ERROR/EMPTY + PANEL GỢI Ý TÌM KIẾM -->
+        <FrameLayout
+            android:id="@+id/content_area"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_nav_bar"
+            android:layout_below="@id/top_bar_container">
+
+            <ListView
+                android:id="@+id/list_videos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:scrollingCache="false" />
+
+            <!-- Vòng xoay khi tải lần đầu -->
+            <ProgressBar
+                android:id="@+id/progress_initial"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="gone" />
+
+            <!-- Khung thông báo trống hoặc lỗi mạng -->
+            <LinearLayout
+                android:id="@+id/state_message_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/space_xl"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txt_state_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:text="@string/empty_videos"
+                    android:textColor="@color/yt_text_secondary"
+                    android:textSize="@dimen/text_body" />
+
+                <Button
+                    android:id="@+id/btn_state_retry"
+                    style="@style/Widget.YouTube2026.Button.Accent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginTop="@dimen/space_m"
+                    android:text="@string/btn_retry" />
+            </LinearLayout>
+
+            <!-- 5. BẢNG GỢI Ý TỪ KHÓA TỨC THÌ & LỊCH SỬ TÌM KIẾM (BƯỚC 5) -->
+            <LinearLayout
+                android:id="@+id/search_suggestions_panel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/yt_bg_primary"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Thanh tiêu đề phụ của Gợi ý / Lịch sử + Nút xóa toàn bộ lịch sử tìm kiếm -->
+                <LinearLayout
+                    android:id="@+id/search_history_header_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/space_m"
+                    android:paddingRight="@dimen/space_m">
+
+                    <TextView
+                        android:id="@+id/txt_search_panel_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Lịch sử &amp; Gợi ý tìm kiếm"
+                        android:textAppearance="@style/TextAppearance.YouTube2026.Meta" />
+
+                    <TextView
+                        android:id="@+id/btn_clear_search_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/selector_ripple_dark"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/space_s"
+                        android:paddingRight="@dimen/space_s"
+                        android:text="@string/search_clear_all_history"
+                        android:textColor="@color/yt_accent"
+                        android:textSize="@dimen/text_caption" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/yt_divider" />
+
+                <ListView
+                    android:id="@+id/list_search_suggestions"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:divider="@null"
+                    android:dividerHeight="0dp"
+                    android:scrollingCache="false" />
+            </LinearLayout>
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <!-- ================= LỚP TRÊN: TRÌNH PHÁT TOÀN MÀN HÌNH & MINI-PLAYER (BƯỚC 6) ================= -->
+    <FrameLayout
+        android:id="@+id/player_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+</FrameLayout>

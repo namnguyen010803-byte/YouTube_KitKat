@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_popup_menu"
+    android:orientation="vertical"
+    android:padding="@dimen/space_s">
+
+    <TextView
+        android:id="@+id/txt_popup_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/space_xs"
+        android:paddingLeft="@dimen/space_s"
+        android:paddingRight="@dimen/space_s"
+        android:paddingTop="@dimen/space_xs"
+        android:text="@string/player_select_quality"
+        android:textAppearance="@style/TextAppearance.YouTube2026.Meta" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/space_xs"
+        android:background="@color/yt_bg_pressed" />
+
+    <ListView
+        android:id="@+id/list_popup_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:dividerHeight="0dp" />
+
+</LinearLayout>

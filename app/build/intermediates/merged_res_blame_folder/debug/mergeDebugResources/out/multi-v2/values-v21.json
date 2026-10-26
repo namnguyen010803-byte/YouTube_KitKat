@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.ytkitkat.app-mergeDebugResources-1:/values-v21/values-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ADMIN\\Downloads\\vibe coding\\YouTube KitKat\\app\\src\\main\\res\\values-v21\\styles.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "140",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "365"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "280"
+                    }
+                }
+            ]
+        }
+    ]
+}

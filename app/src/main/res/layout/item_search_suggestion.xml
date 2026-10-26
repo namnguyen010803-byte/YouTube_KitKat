@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@drawable/selector_ripple_dark"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/space_m"
+    android:paddingRight="@dimen/space_s">
+
+    <!-- Icon đồng hồ (lịch sử) hoặc kính lúp (gợi ý trực tiếp) -->
+    <ImageView
+        android:id="@+id/img_suggestion_type"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_history_clock" />
+
+    <!-- Nội dung từ khóa -->
+    <TextView
+        android:id="@+id/txt_suggestion_query"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_l"
+        android:layout_marginRight="@dimen/space_s"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/yt_text_primary"
+        android:textSize="@dimen/text_title" />
+
+    <!-- Nút xóa từng mục lịch sử (chỉ hiện với mục lịch sử) -->
+    <ImageButton
+        android:id="@+id/btn_delete_history_item"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/selector_icon_button"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:padding="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_close" />
+
+    <!-- Nút điền nhanh từ khóa lên ô tìm kiếm -->
+    <ImageButton
+        android:id="@+id/btn_fill_query"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/selector_icon_button"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:padding="8dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_north_west" />
+
+</LinearLayout>

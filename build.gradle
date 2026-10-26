@@ -1,0 +1,5 @@
+// Top-level build file.
+// Chỉ khai báo Android Gradle Plugin, KHÔNG có bất kỳ thư viện bên thứ ba nào.
+plugins {
+    id 'com.android.application' version '9.4.0' apply false
+}
